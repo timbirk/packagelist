@@ -1,0 +1,95 @@
+---
+account_services:
+  include:
+    - talpay-account-ibusiness
+    - talpay-account-reconnet
+    - talpay-test-ibusiness
+    - talpay-test-reconnet
+    - talpay-test-ftp-server
+  environments:
+    pre:
+      exclude:
+        - talpay-test-ibusiness
+        - talpay-test-reconnet
+        - talpay-test-ftp-server
+    prod:
+      exclude:
+        - talpay-test-ibusiness
+        - talpay-test-reconnet
+        - talpay-test-ftp-server
+
+data_services:
+  include:
+    - talpay-data-user
+    - talpay-data-party
+    - talpay-data-payment
+
+exchange_services:
+  include:
+    - talpay-ibusiness-epayment
+    - talpay-ibusiness-ledger
+    - talpay-dbextract
+    - talpay-extract-gtvap
+    - talpay-export-gtvap
+
+payment_services:
+  include:
+    - talpay-payment-calculator
+    - talpay-payment-epayment
+    - talpay-payment-print-service
+    - talpay-test-cheque-printer
+  environments:
+    pre:
+      exclude:
+        - talpay-test-cheque-printer
+    prod:
+      exclude:
+        - talpay-test-cheque-printer
+
+user_services:
+  include:
+    - talpay-user-authorisation
+    - talpay-user-express-pay
+    - talpay-user-home
+    - talpay-user-party
+    - talpay-user-payment
+    - talpay-user-permission
+    - talpay-user-prize
+    - talpay-user-refund
+    - talpay-user-static
+    - talpay-test-oauth2-server
+    - talpay-test-webapp
+  versions:
+    6.2:
+      include:
+        - talpay-user-pcs
+        - talpay-test-pcs
+        - talpay-user-secondary
+  environments:
+    pre:
+      exclude:
+        - talpay-test-oauth2-server
+        - talpay-test-webapp
+        - talpay-test-pcs
+    prod:
+      exclude:
+        - talpay-test-oauth2-server
+        - talpay-test-webapp
+        - talpay-test-pcs
+
+workflow_services:
+  include:
+    - talpay-framework-action
+    - talpay-framework-audit
+    - talpay-framework-notification
+    - talpay-framework-reports
+    - talpay-framework-scheduling
+    - talpay-framework-workflow
+    - talpay-test-email-server
+  environments:
+    pre:
+      exclude:
+        - talpay-test-email-server
+    prod:
+      exclude:
+        - talpay-test-email-server
